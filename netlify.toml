@@ -1,26 +1,7 @@
 [build]
   publish = "public"
-  functions = "netlify/functions"
-
-[dev]
-  publish = "public"
-  functions = "netlify/functions"
-
-[functions]
-  # Bundle ML model files into the serverless function package
-  included_files = [
-    "model_info.json",
-    "email_spam_model.pkl",
-    "email_spam_model (1).pkl"
-  ]
-
-# Route API prediction requests to the serverless function
-[[redirects]]
-  from = "/api/predict"
-  to = "/.netlify/functions/predict"
-  status = 200
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api"
+  from = "/*"
+  to = "/index.html"
   status = 200
