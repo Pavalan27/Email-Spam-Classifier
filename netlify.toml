@@ -1,0 +1,21 @@
+[build]
+  functions = "netlify/functions"
+
+[dev]
+  functions = "netlify/functions"
+
+[functions]
+  # Ensure the trained ML model, metadata, templates, and static assets are bundled
+  included_files = [
+    "model_info.json",
+    "email_spam_model.pkl",
+    "email_spam_model (1).pkl",
+    "templates/**",
+    "static/**"
+  ]
+
+# Route all incoming requests to the Netlify serverless function
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/api"
+  status = 200
